@@ -47,10 +47,10 @@ export default class ReactiveParticles extends THREE.Object3D {
 
   createBoxMesh() {
     // Randomly generate segment counts for width, height, and depth to create varied box geometries
-    let widthSeg = Math.floor(THREE.MathUtils.randInt(5, 20))
-    let heightSeg = Math.floor(THREE.MathUtils.randInt(1, 40))
+    let radius = Math.floor(THREE.MathUtils.randInt(5, 20))
+    let detail = Math.floor(THREE.MathUtils.randInt(1, 40))
     let depthSeg = Math.floor(THREE.MathUtils.randInt(5, 80))
-    this.geometry = new THREE.BoxGeometry(1, 1, 1, widthSeg, heightSeg, depthSeg)
+    this.geometry = new THREE.IcosahedronGeometry(1,  25, radius , detail)
 
     // Update shader material uniform for offset size with a random value
     this.material.uniforms.offsetSize.value = Math.floor(THREE.MathUtils.randInt(30, 60))
